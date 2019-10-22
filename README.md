@@ -87,13 +87,14 @@ names.append(name)
 msg = "%s: %f SD:%f" % (name, cross_val.mean(), cross_val.std())
 print(msg)
 ```
+```
 LR: 0.948485 SD:0.058564
 LDA: 0.990909 SD:0.027273
 KNN: 0.965152 SD:0.058994
 DT: 0.965909 SD:0.041804
 NB: 0.965909 SD:0.041804
 SVM: 0.957576 SD:0.042478
-
+```
  As we can see LDA outperforms other models. Let's visualize the results of each model.
 ```js
 import matplotlib.pyplot as plt
@@ -104,3 +105,4 @@ plt.boxplot(results)
 ax.set_xticklabels(names)
 plt.show()
 ```
+![](plot2.png)
