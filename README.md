@@ -105,5 +105,24 @@ plt.boxplot(results)
 ax.set_xticklabels(names)
 plt.show()
 ```
-![](Plot2.png)
+![](plot_2.png)
+
  Make predictions on validation dataset
+```js
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+LDA = LinearDiscriminantAnalysis()
+LDA.fit(X_train, Y_train)
+predictions = LDA.predict(X_test)
+print(round(accuracy_score(Y_test, predictions),4))
+print(confusion_matrix(Y_test, predictions))
+print(classification_report(Y_test, predictions))
+```
+![](plot3.png)
+
+ From the confusion matrix (first row) we can see that 12 molecules binding COX-1 were classified correctly and
+ one molecule was incorrectly classified because it was assigned to class 3. 
+ All 10 molecules binding HIV-1 protease (row 2) and all 6 molecules binding Cytochrome C peroxidase enzyme (row 3)
+ were classified correctly.
+ The code is available in Jyputer notebook 'Classification.ipynb'.
