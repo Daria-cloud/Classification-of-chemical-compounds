@@ -1,4 +1,4 @@
-# Comparing classification algorithms for assignment of chemical compounds into different classes
+** Comparing classification algorithms for assignment of chemical compounds into different classes **
 
  The goal of computer-aided drug design is identification of 
  novel compounds active against selected protein targets. In general, 
@@ -35,10 +35,8 @@
  the molecules binding HIV-1 protease have class label '2' and molecules binding Cytochrome C peroxidase enzyme has
  class label '3'. The eight chemical descriptors labeled as D1-D8.
 
-```jyputer
-
+```json
 import pandas as pd
 data = pd.read_csv('Dataset_COX-1_HIV-1_Cyt.csv')
 data[0:5]
-
 ```
