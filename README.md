@@ -50,4 +50,57 @@ val = data.values
 X = val[:,0:8]
 Y = val[:,8]
 ```
+ Let's train the model on 80% of the data and leave 20% for validation.
+```js
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 650)
+```
+ Let’s start by importing required classifiers.
+```js
+from sklearn import model_selection
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix
+```
+ Let's prepare models, and train each model with a 10-fold cross-validation.
+```js
+seed = 15
+models = []
+names = []
+results = []
+scoring = 'accuracy'
+models.append(('LR', LogisticRegression()))
+models.append(('LDA', LinearDiscriminantAnalysis()))
+models.append(('KNN', KNeighborsClassifier()))
+models.append(('DT', DecisionTreeClassifier()))
+models.append(('NB', GaussianNB()))
+models.append(('SVM', SVC(kernel='linear')))
+for name, model in models:
+kfold = model_selection.KFold(n_splits=10, random_state=seed)
+cross_val = model_selection.cross_val_score(model, X_train, Y_train, cv=kfold, scoring=scoring)
+results.append(cross_val)
+names.append(name)
+msg = "%s: %f SD:%f" % (name, cross_val.mean(), cross_val.std())
+print(msg)
+```
+LR: 0.948485 SD:0.058564
+LDA: 0.990909 SD:0.027273
+KNN: 0.965152 SD:0.058994
+DT: 0.965909 SD:0.041804
+NB: 0.965909 SD:0.041804
+SVM: 0.957576 SD:0.042478
 
+ As we can see LDA outperforms other models. Let's visualize the results of each model.
+```js
+import matplotlib.pyplot as plt
+fig = plt.figure()
+fig.suptitle('Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names)
+plt.show()
+```
