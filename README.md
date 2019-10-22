@@ -30,3 +30,11 @@
  the cyclooxygenase 1 (COX1) enzyme, 59 molecules that bind HIV-1 protease and 41 molecules bind 
  Cytochrome C peroxidase enzyme.
  Our dataset has three classes and eight numeric input variables (chemical descriptors) of varying scales.
+
+ Let's load an input data and print the first 5 elements. The molecules binding COX-1 enzyme have class label '1',
+ the molecules binding HIV-1 protease have class label '2' and molecules binding Cytochrome C peroxidase enzyme has
+ class label '3'. The eight chemical descriptors labeled as D1-D8.
+
+import pandas as pd
+data = pd.read_csv('Dataset_COX-1_HIV-1_Cyt.csv')
+data[0:5]
