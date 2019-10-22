@@ -1,4 +1,4 @@
-** Comparing classification algorithms for assignment of chemical compounds into different classes **
+# Comparing classification algorithms for assignment of chemical compounds into different classes
 
  The goal of computer-aided drug design is identification of 
  novel compounds active against selected protein targets. In general, 
