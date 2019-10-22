@@ -38,7 +38,10 @@
 ```js
 import pandas as pd
 data = pd.read_csv('Dataset_COX-1_HIV-1_Cyt.csv')
+data[0:5]
 ```
+![](plot1.png)
+
  So, let's create two variable X and Y. The X variable will contain all chemical descriptors and 
  Y will contain class labels.
 
@@ -47,3 +50,4 @@ val = data.values
 X = val[:,0:8]
 Y = val[:,8]
 ```
+
