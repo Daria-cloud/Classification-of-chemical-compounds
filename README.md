@@ -105,5 +105,5 @@ plt.boxplot(results)
 ax.set_xticklabels(names)
 plt.show()
 ```
-![](plot2.png)
+![](Plot2.png)
  Make predictions on validation dataset
